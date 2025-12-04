@@ -26,12 +26,11 @@ func main() {
 	// Initialize Gin router
 	r := gin.Default()
 
-	// Configure CORS
+	// Configure CORS - allow all origins for home network deployment
 	r.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"http://localhost:5201"},
+		AllowAllOrigins:  true,
 		AllowMethods:     []string{"GET", "POST", "DELETE"},
 		AllowHeaders:     []string{"Content-Type"},
-		AllowCredentials: true,
 	}))
 
 	// Initialize handlers
