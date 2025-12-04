@@ -1,6 +1,19 @@
 import { User, WishlistItem, CreateItemRequest } from './types';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5200';
+// Dynamically determine API URL based on current location
+const getApiBaseUrl = () => {
+  // If VITE_API_URL is set at build time, use it (for development)
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL;
+  }
+
+  // Otherwise, use the same hostname as the frontend with backend port
+  const protocol = window.location.protocol;
+  const hostname = window.location.hostname;
+  return `${protocol}//${hostname}:5200`;
+};
+
+const API_BASE_URL = getApiBaseUrl();
 
 export const api = {
   async getUsers(): Promise<User[]> {

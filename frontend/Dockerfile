@@ -12,8 +12,9 @@ RUN npm install
 # Copy source code
 COPY . .
 
-# Build the app (with production API URL)
-ARG VITE_API_URL=http://localhost:5200
+# Build the app
+# VITE_API_URL is optional - if not set, the app will auto-detect from window.location
+ARG VITE_API_URL
 ENV VITE_API_URL=$VITE_API_URL
 RUN npm run build
 
