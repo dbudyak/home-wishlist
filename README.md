@@ -97,12 +97,6 @@ sudo journalctl -u wishlist.service
 
 ### API URL Auto-Detection
 
-The frontend automatically detects the backend API URL based on the hostname you use to access it:
-- If you access the frontend at `http://192.168.1.200:5201`, it will use `http://192.168.1.200:5200` for the API
-- If you access it at `http://localhost:5201`, it will use `http://localhost:5200` for the API
-
-This means you don't need to rebuild the containers when deploying to different hosts.
-
 For development, you can override this by setting the `VITE_API_URL` environment variable during build.
 
 ## Development
