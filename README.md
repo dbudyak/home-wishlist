@@ -1,6 +1,6 @@
 # Family Wishlist
 
-A simple Go-based wishlist service for managing wishlist items for two users: Dima and Aleksandra. Built with Go (Gin), React + TypeScript, and PostgreSQL.
+A simple Go-based wishlist service for managing wishlist items for two users. Built with Go (Gin), React + TypeScript, and PostgreSQL.
 
 ## Features
 
