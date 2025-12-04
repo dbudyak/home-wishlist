@@ -179,30 +179,6 @@ docker-compose ps
 ### Frontend not connecting to backend
 Check that CORS is properly configured and both services are running.
 
-## Project Structure
-
-```
-go-wishlist/
-├── backend/
-│   ├── main.go              # Entry point
-│   ├── database/            # Database connection and migrations
-│   ├── handlers/            # API handlers
-│   ├── models/              # Data models
-│   ├── go.mod
-│   └── Dockerfile
-├── frontend/
-│   ├── src/
-│   │   ├── App.tsx          # Main app component
-│   │   ├── WishlistColumn.tsx  # Column component
-│   │   ├── api.ts           # API client
-│   │   ├── types.ts         # TypeScript types
-│   │   └── index.css        # Styles
-│   ├── nginx.conf
-│   ├── Dockerfile
-│   └── package.json
-└── docker-compose.yml
-```
-
 ## License
 
 MIT
