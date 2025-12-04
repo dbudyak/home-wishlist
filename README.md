@@ -39,6 +39,60 @@ docker-compose up -d
    - Backend API: http://localhost:5200
    - PostgreSQL: localhost:5202
 
+## Deployment as Systemd Service
+
+For production deployment on a server (like a home NAS), you can set up the wishlist service to start automatically on boot:
+
+1. Clone the repository on your server:
+```bash
+cd /opt  # or your preferred location
+git clone git@github.com:dbudyak/home-wishlist.git
+cd home-wishlist
+```
+
+2. Update the systemd service file with the correct path:
+```bash
+# Edit wishlist.service and replace /path/to/home-wishlist with actual path
+sed -i "s|/path/to/home-wishlist|$(pwd)|g" wishlist.service
+```
+
+3. Install and enable the systemd service:
+```bash
+sudo cp wishlist.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable wishlist.service
+sudo systemctl start wishlist.service
+```
+
+4. Check the service status:
+```bash
+sudo systemctl status wishlist.service
+```
+
+5. View logs:
+```bash
+sudo journalctl -u wishlist.service -f
+```
+
+### Systemd Service Management
+
+```bash
+# Start the service
+sudo systemctl start wishlist.service
+
+# Stop the service
+sudo systemctl stop wishlist.service
+
+# Restart the service
+sudo systemctl restart wishlist.service
+
+# Disable auto-start on boot
+sudo systemctl disable wishlist.service
+
+# View logs
+sudo journalctl -u wishlist.service
+```
+
 ## Development
 
 ### Backend Development
